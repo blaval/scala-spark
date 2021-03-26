@@ -49,6 +49,11 @@
             <version>${spark.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_${scala.compat.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.beachape</groupId>
             <artifactId>enumeratum_${scala.compat.version}</artifactId>
             <version>${enumeratum.version}</version>
