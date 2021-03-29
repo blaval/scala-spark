@@ -17,7 +17,7 @@ trait Runnable[A <: RunnableArgs] {
     val spark      = appContext.setupAppContext(applicationName, arguments)
 
     try {
-      createJob(appContext, spark, arguments)
+      createJob(appContext, spark, arguments).run()
     } catch {
       case e: Exception => throw e
     } finally {
