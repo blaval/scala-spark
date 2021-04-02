@@ -1,4 +1,4 @@
-package com.github.blaval.scalaspark.scalaspark.common
+package com.github.blaval.scalaspark.common
 
 import com.typesafe.config.{Config, ConfigFactory}
 import org.apache.hadoop.conf.Configuration

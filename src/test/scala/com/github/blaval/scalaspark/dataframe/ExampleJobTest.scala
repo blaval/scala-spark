@@ -1,8 +1,9 @@
-package com.github.blaval.scalaspark.scalaspark.dataframe
+package com.github.blaval.scalaspark.dataframe
 
-import com.github.blaval.scalaspark.scalaspark.common._
-import com.github.blaval.scalaspark.scalaspark.runnable.DataFrameArgs
-import com.github.blaval.scalaspark.scalaspark.utils.HiveSpec
+import com.github.blaval.scalaspark.common.{Database, DbTable, Table, TableFunction}
+import com.github.blaval.scalaspark.runnable
+import com.github.blaval.scalaspark.runnable.DataFrameArgs
+import com.github.blaval.scalaspark.utils.HiveSpec
 import org.scalatest.WordSpec
 
 class ExampleJobTest extends WordSpec with HiveSpec {
@@ -47,7 +48,7 @@ object ExampleJobTest {
   ): DataFrameArgs = {
     val db                    = Database("db")
     val dt: String => DbTable = table => DbTable(db, Table(table))
-    DataFrameArgs(
+    runnable.DataFrameArgs(
       patientTable = dt(patientTable),
       physicianTable = dt(physicianTable),
       physicianExcludedTable = dt(physicianExcludedTable),

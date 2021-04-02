@@ -1,4 +1,4 @@
-package com.github.blaval.scalaspark.scalaspark.common
+package com.github.blaval.scalaspark.common
 
 object JoinType {
   val inner      = "inner"

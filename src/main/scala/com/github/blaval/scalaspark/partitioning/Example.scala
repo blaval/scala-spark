@@ -1,4 +1,4 @@
-package com.github.blaval.scalaspark.scalaspark.partitioning
+package com.github.blaval.scalaspark.partitioning
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{HashPartitioner, Partitioner, RangePartitioner}

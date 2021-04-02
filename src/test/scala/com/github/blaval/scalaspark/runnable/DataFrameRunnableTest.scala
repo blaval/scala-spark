@@ -1,13 +1,13 @@
-package com.github.blaval.scalaspark.scalaspark.runnable
+package com.github.blaval.scalaspark.runnable
 
-import com.github.blaval.scalaspark.scalaspark.common.{Database, DbTable, Table}
+import com.github.blaval.scalaspark.common.{Database, DbTable, Table}
 import org.scalatest.{Matchers, WordSpec}
 
 class DataFrameRunnableTest extends WordSpec with Matchers {
   "DataFrameRunnable" should {
     "have a correct name" in {
       val name = "DataFrameRunnable$"
-      DataFrameRunnable.applicationName shouldBe s"com.github.blaval.scalaspark.scalaspark.runnable.$name"
+      DataFrameRunnable.applicationName shouldBe s"com.github.blaval.scalaspark.runnable.$name"
     }
     "successfully accept all arguments" in {
       val inputArgs = Array(

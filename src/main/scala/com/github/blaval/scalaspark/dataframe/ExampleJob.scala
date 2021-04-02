@@ -1,7 +1,7 @@
-package com.github.blaval.scalaspark.scalaspark.dataframe
+package com.github.blaval.scalaspark.dataframe
 
-import com.github.blaval.scalaspark.scalaspark.common.{Job, JoinType, TableFunction}
-import com.github.blaval.scalaspark.scalaspark.runnable.DataFrameArgs
+import com.github.blaval.scalaspark.common.{Job, JoinType, TableFunction}
+import com.github.blaval.scalaspark.runnable.DataFrameArgs
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 class ExampleJob(spark: SparkSession, arguments: DataFrameArgs, tableFunction: TableFunction) extends Job {

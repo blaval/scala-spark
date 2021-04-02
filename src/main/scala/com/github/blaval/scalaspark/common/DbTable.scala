@@ -1,4 +1,4 @@
-package com.github.blaval.scalaspark.scalaspark.common
+package com.github.blaval.scalaspark.common
 
 case class Database(name: String = "")
 case class Table(name: String = "")

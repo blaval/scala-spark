@@ -1,6 +1,6 @@
-package com.github.blaval.scalaspark.scalaspark.utils
+package com.github.blaval.scalaspark.utils
 
-import com.github.blaval.scalaspark.scalaspark.common.DbTable
+import com.github.blaval.scalaspark.common.DbTable
 import org.apache.spark.sql.{Dataset, Encoder, SaveMode}
 import org.scalatest.Suite
 

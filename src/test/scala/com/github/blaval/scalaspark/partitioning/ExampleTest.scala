@@ -1,6 +1,6 @@
-package com.github.blaval.scalaspark.scalaspark.partitioning
+package com.github.blaval.scalaspark.partitioning
 
-import com.github.blaval.scalaspark.scalaspark.utils.HiveSpec
+import com.github.blaval.scalaspark.utils.HiveSpec
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.scalatest.{Matchers, WordSpec}

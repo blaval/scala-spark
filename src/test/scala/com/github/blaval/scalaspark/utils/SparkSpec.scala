@@ -1,4 +1,4 @@
-package com.github.blaval.scalaspark.scalaspark.utils
+package com.github.blaval.scalaspark.utils
 
 import com.holdenkarau.spark.testing.DatasetSuiteBase
 import org.apache.spark.SparkConf

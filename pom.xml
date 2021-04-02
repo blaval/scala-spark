@@ -183,7 +183,7 @@
                     <highlighting>true</highlighting>
                     <minimumCoverage>95</minimumCoverage>
                     <failOnMinimumCoverage>true</failOnMinimumCoverage>
-                    <!--<excludedPackages></excludedPackages>-->
+                    <excludedPackages>com.github.blaval.scalaspark.common.*</excludedPackages>
                 </configuration>
             </plugin>
             <plugin>

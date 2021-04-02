@@ -1,6 +1,6 @@
-package com.github.blaval.scalaspark.scalaspark
+package com.github.blaval.scalaspark
 
-import com.github.blaval.scalaspark.scalaspark.common.{Database, DbTable, Table}
+import com.github.blaval.scalaspark.common.{Database, DbTable, Table}
 import scopt.Read
 
 package object runnable {

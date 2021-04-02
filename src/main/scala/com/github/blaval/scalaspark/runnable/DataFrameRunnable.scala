@@ -1,7 +1,7 @@
-package com.github.blaval.scalaspark.scalaspark.runnable
+package com.github.blaval.scalaspark.runnable
 
-import com.github.blaval.scalaspark.scalaspark.common.{AppContext, DbTable, Job, Runnable, RunnableArgs, TableFunction}
-import com.github.blaval.scalaspark.scalaspark.dataframe.ExampleJob
+import com.github.blaval.scalaspark.common.{AppContext, DbTable, Job, Runnable, RunnableArgs, TableFunction}
+import com.github.blaval.scalaspark.dataframe.ExampleJob
 import org.apache.spark.sql.SparkSession
 import scopt.OptionParser
 
