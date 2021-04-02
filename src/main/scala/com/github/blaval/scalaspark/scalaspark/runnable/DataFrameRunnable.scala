@@ -1,11 +1,11 @@
 package com.github.blaval.scalaspark.scalaspark.runnable
 
-import com.github.blaval.scalaspark.scalaspark.common.{AppContext, Job, Runnable, TableFunction}
+import com.github.blaval.scalaspark.scalaspark.common.{AppContext, Job, Runnable, RunnableArgs, TableFunction}
 import com.github.blaval.scalaspark.scalaspark.dataframe.ExampleJob
 import org.apache.spark.sql.SparkSession
 import scopt.OptionParser
 
-class DataFrameRunnable extends Runnable[DataFrameArgs] {
+object DataFrameRunnable extends Runnable[DataFrameArgs] {
   override def applicationName: String = this.getClass.getName
 
   override def readInputParameters(args: Array[String]): DataFrameArgs = {
@@ -35,3 +35,4 @@ class DataFrameRunnable extends Runnable[DataFrameArgs] {
 }
 
 case class DataFrameArgs(patientTable: String = "", physicianTable: String = "", outputTable: String = "")
+    extends RunnableArgs
