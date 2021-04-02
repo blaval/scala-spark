@@ -15,6 +15,10 @@ class DataFrameRunnableTest extends WordSpec with Matchers {
         "db.patients",
         "--physicianTable",
         "db.physicians",
+        "--physicianExcludedTable",
+        "db.physicians_excluded",
+        "--selectedPatientTable",
+        "db.patients_selected",
         "--outputTable",
         "db.patients_with_physicians"
       )
@@ -23,6 +27,8 @@ class DataFrameRunnableTest extends WordSpec with Matchers {
       DataFrameRunnable.readInputParameters(inputArgs) shouldBe DataFrameArgs(
         patientTable = dt("patients"),
         physicianTable = dt("physicians"),
+        physicianExcludedTable = dt("physicians_excluded"),
+        selectedPatientTable = dt("patients_selected"),
         outputTable = dt("patients_with_physicians")
       )
     }

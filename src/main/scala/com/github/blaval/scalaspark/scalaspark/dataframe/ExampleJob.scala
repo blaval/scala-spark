@@ -10,10 +10,13 @@ class ExampleJob(spark: SparkSession, arguments: DataFrameArgs, tableFunction: T
 
   override def run(): Unit = {
     import arguments._
-    val patients   = spark.table(patientTable.name)
-    val physicians = spark.table(physicianTable.name)
+    val patients           = spark.table(patientTable.name)
+    val physicians         = spark.table(physicianTable.name)
+    val physiciansExcluded = spark.table(physicianExcludedTable.name)
+    val selectedPatients   = spark.table(selectedPatientTable.name)
 
-    val patientsWithPhysicianDetails = ExampleJob.joinPatientsAndPhysicians(patients, physicians)
+    val patientsWithPhysicianDetails =
+      ExampleJob.joinPatientsAndPhysicians(patients, physicians, physiciansExcluded, selectedPatients)
 
     tableFunction.overwrite(patientsWithPhysicianDetails.repartition(1, $"patient_id"), outputTable)
   }
@@ -21,8 +24,16 @@ class ExampleJob(spark: SparkSession, arguments: DataFrameArgs, tableFunction: T
 
 object ExampleJob {
 
-  def joinPatientsAndPhysicians(patients: DataFrame, physicians: DataFrame): DataFrame = {
-    patients.join(physicians, Seq("patient_id"), JoinType.leftOuter)
+  def joinPatientsAndPhysicians(
+    patients: DataFrame,
+    physicians: DataFrame,
+    physiciansExcluded: DataFrame,
+    selectedPatients: DataFrame
+  ): DataFrame = {
+    val physiciansFiltered = physicians.join(physiciansExcluded, Seq("physician_id"), JoinType.leftAnti)
+    patients
+      .join(selectedPatients, Seq("patient_id"), JoinType.leftSemi)
+      .join(physiciansFiltered, Seq("patient_id"), JoinType.leftOuter)
   }
 
 }

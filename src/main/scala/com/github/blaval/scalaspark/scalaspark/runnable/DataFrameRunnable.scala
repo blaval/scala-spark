@@ -18,6 +18,14 @@ object DataFrameRunnable extends Runnable[DataFrameArgs] {
         .text("physician table name, i.e db.physicians")
         .action((value, param) => param.copy(physicianTable = value))
         .required()
+      opt[DbTable]("physicianExcludedTable")
+        .text("table name of physicians to ignore, i.e db.physicians_excluded")
+        .action((value, param) => param.copy(physicianExcludedTable = value))
+        .required()
+      opt[DbTable]("selectedPatientTable")
+        .text("table name of patients to select, i.e db.patients_selected")
+        .action((value, param) => param.copy(selectedPatientTable = value))
+        .required()
       opt[DbTable]("outputTable")
         .text("output table name, i.e db.patients_with_physicians")
         .action((value, param) => param.copy(outputTable = value))
@@ -37,5 +45,7 @@ object DataFrameRunnable extends Runnable[DataFrameArgs] {
 case class DataFrameArgs(
   patientTable: DbTable = DbTable(),
   physicianTable: DbTable = DbTable(),
+  physicianExcludedTable: DbTable = DbTable(),
+  selectedPatientTable: DbTable = DbTable(),
   outputTable: DbTable = DbTable()
 ) extends RunnableArgs
