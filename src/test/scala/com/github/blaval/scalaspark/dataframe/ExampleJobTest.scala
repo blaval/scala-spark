@@ -31,7 +31,7 @@ class ExampleJobTest extends WordSpec with HiveSpec {
       new ExampleJob(spark, args, new TableFunction(spark)).run()
 
       val expected = Seq("3" -> "11", "4" -> null).toDF("patient_id", "physician_id")
-      assertDataFrameEquals(spark.table(args.outputTable.name), expected)
+      assertDataFrameEquals(expected, spark.table(args.outputTable.name))
     }
   }
 

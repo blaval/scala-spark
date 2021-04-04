@@ -20,8 +20,10 @@ object TimeUtils {
 
   object FromInt {
 
-    def intToLocalDate(date: Int): LocalDate =
+    def intToLocalDate(date: Int): LocalDate = {
+      require(date.toString.length == 8, "date must be an Int respecting the format yyyyMMdd")
       LocalDate.parse(date.toString, DtTimeFormatter.weekIdPattern)
+    }
 
     def intToTimestamp(date: Int): Timestamp =
       Timestamp.valueOf(intToLocalDate(date).atStartOfDay())
