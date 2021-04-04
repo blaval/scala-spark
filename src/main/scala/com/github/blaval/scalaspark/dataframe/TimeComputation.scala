@@ -1,10 +1,8 @@
 package com.github.blaval.scalaspark.dataframe
 
+import com.github.blaval.scalaspark.model.Period
 import org.apache.spark.sql.functions.datediff
 import org.apache.spark.sql.{DataFrame, SparkSession}
-
-import java.sql.Date
-import java.time.LocalDate
 
 final class TimeComputation(spark: SparkSession, period: Period) {
   import spark.implicits.StringToColumn
@@ -20,10 +18,4 @@ final class TimeComputation(spark: SparkSession, period: Period) {
       .transform(selectWithinPeriod)
       .transform(serviceDuration)
   }
-}
-
-final case class Period(start: Date, end: Date)
-
-object Period {
-  def apply(start: LocalDate, end: LocalDate): Period = Period(Date.valueOf(start), Date.valueOf(end))
 }

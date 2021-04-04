@@ -1,5 +1,6 @@
 package com.github.blaval.scalaspark.dataframe
 
+import com.github.blaval.scalaspark.model.Period
 import com.github.blaval.scalaspark.utils.HiveSpec
 import com.github.blaval.scalaspark.utils.TimeUtils.FromInt.{intToTimestamp => toTs}
 import org.scalatest.{Matchers, WordSpec}
