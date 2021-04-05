@@ -119,7 +119,7 @@
             </parameter>
         </parameters>
     </check>
-    <check level="warning" class="org.scalastyle.scalariform.MethodNamesChecker" enabled="true">
+    <check level="warning" class="org.scalastyle.scalariform.MethodNamesChecker" enabled="false">
         <parameters>
             <parameter name="regex">
                 <![CDATA[ ^[a-z][A-Za-z0-9]*$ ]]>
@@ -161,7 +161,7 @@
     <check level="warning" class="org.scalastyle.scalariform.MultipleStringLiteralsChecker" enabled="true">
         <parameters>
             <parameter name="allowed">
-                <![CDATA[ 2 ]]>
+                <![CDATA[ 10 ]]>
             </parameter>
             <parameter name="ignoreRegex">
                 <![CDATA[ ^""$ ]]>
