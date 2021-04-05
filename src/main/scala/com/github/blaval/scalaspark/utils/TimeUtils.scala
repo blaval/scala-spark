@@ -43,8 +43,8 @@ object TimeUtils {
       dayValue => date => date.plusDays(dayValue - date.getDayOfWeek.getValue)
 
     val setDateToMonday: LocalDate => LocalDate = setDateToDay(mondayDayValue)
-    val weekToString: LocalDate => String       = _.format((DateTimeFormatter.BASIC_ISO_DATE))
-    val weekToInt: LocalDate => Int             = _.format((DateTimeFormatter.BASIC_ISO_DATE)).toInt
+    val weekToString: LocalDate => String       = _.format(DateTimeFormatter.BASIC_ISO_DATE)
+    val weekToInt: LocalDate => Int             = _.format(DateTimeFormatter.BASIC_ISO_DATE).toInt
   }
 
   object FromDateColumn {
