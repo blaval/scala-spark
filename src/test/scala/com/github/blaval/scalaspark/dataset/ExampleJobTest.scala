@@ -1,8 +1,8 @@
 package com.github.blaval.scalaspark.dataset
 
-import com.github.blaval.scalaspark.common.{Database, DbTable, Table, TableFunction}
+import com.github.blaval.scalaspark.common.{AppContext, Database, DbTable, Table, TableFunction}
 import com.github.blaval.scalaspark.runnable
-import com.github.blaval.scalaspark.runnable.DatasetArgs
+import com.github.blaval.scalaspark.runnable.{DataFrameRunnable, DatasetArgs, DatasetRunnable}
 import com.github.blaval.scalaspark.utils.HiveSpec
 import org.scalatest.{Matchers, WordSpec}
 
@@ -24,7 +24,7 @@ class ExampleJobTest extends WordSpec with HiveSpec with Matchers {
         args.patientTable
       )
 
-      new ExampleJob(spark, args, new TableFunction(spark)).run()
+      DatasetRunnable.createJob(new AppContext(), spark, args).run()
       val result = spark.table(args.outputTable.name).as[Patient].collect().toList
       result.size shouldBe 1
 

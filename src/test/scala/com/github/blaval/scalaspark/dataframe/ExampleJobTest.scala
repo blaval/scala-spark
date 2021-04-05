@@ -1,8 +1,8 @@
 package com.github.blaval.scalaspark.dataframe
 
-import com.github.blaval.scalaspark.common.{Database, DbTable, Table, TableFunction}
+import com.github.blaval.scalaspark.common.{AppContext, Database, DbTable, Table, TableFunction}
 import com.github.blaval.scalaspark.runnable
-import com.github.blaval.scalaspark.runnable.DataFrameArgs
+import com.github.blaval.scalaspark.runnable.{DataFrameArgs, DataFrameRunnable}
 import com.github.blaval.scalaspark.utils.HiveSpec
 import org.scalatest.WordSpec
 
@@ -28,7 +28,7 @@ class ExampleJobTest extends WordSpec with HiveSpec {
       createTable(Seq("10" -> "2", "11" -> "3").toDF("physician_id", "patient_id"), args.physicianTable)
       createTable(Seq("10").toDF("physician_id"), args.physicianExcludedTable)
       createTable(Seq("3", "4").toDF("patient_id"), args.selectedPatientTable)
-      new ExampleJob(spark, args, new TableFunction(spark)).run()
+      DataFrameRunnable.createJob(new AppContext(), spark, args).run()
 
       val expected = Seq("3" -> "11", "4" -> null).toDF("patient_id", "physician_id")
       assertDataFrameEquals(expected, spark.table(args.outputTable.name))
