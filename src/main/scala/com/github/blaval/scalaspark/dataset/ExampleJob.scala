@@ -9,7 +9,7 @@ case class Prescription(id: String, price: Double)
 case class Patient(patient_id: Long, prescriptions: Seq[Prescription]) {
 
   def + (other: Patient): Patient = {
-    require(other.patient_id == patient_id, "Cannot merge with anoher patient because they have different id")
+    require(other.patient_id == patient_id, "Cannot merge with another patient because they have different id")
     copy(prescriptions = prescriptions ++ other.prescriptions)
   }
 }
