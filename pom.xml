@@ -22,6 +22,7 @@
         <spark.testing.version>2.4.5_1.0.0</spark.testing.version>
         <log4j2.version>2.14.1</log4j2.version>
         <log4j2.scala.version>12.0</log4j2.scala.version>
+        <jackson.version>2.12.3</jackson.version>
     </properties>
 
     <dependencies>
@@ -74,6 +75,11 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api-scala_${scala.compat.version}</artifactId>
             <version>${log4j2.scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
         <!-- Test -->

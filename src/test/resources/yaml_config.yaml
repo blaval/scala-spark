@@ -1,0 +1,10 @@
+patients:
+  prescriptions:
+    - code: "code1"
+      in: [ "A","C" ]
+    - code: "code2"
+      like: [ "D%","B%" ]
+  address: "221B Baker Street"
+  event: 2021-04-20
+physicians:
+  ageOver: 50

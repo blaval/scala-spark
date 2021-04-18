@@ -11,7 +11,8 @@ import java.time.{LocalDate, ZoneOffset}
 object TimeUtils {
 
   object Format {
-    val yyyyMMdd = "yyyyMMdd"
+    val yyyyMMdd   = "yyyyMMdd"
+    val yyyy_MM_dd = "yyyy-MM-dd"
   }
 
   object DtTimeFormatter {
