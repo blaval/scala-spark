@@ -1,8 +1,9 @@
 package com.github.blaval.scalaspark.dataset
 
-import com.github.blaval.scalaspark.common.{AppContext, Database, DbTable, Table, TableFunction}
+import com.github.blaval.scalaspark.common.{AppContext, Database, DbTable, Table}
+import com.github.blaval.scalaspark.model.{Patient, Prescription}
 import com.github.blaval.scalaspark.runnable
-import com.github.blaval.scalaspark.runnable.{DataFrameRunnable, DatasetArgs, DatasetRunnable}
+import com.github.blaval.scalaspark.runnable.{DatasetArgs, DatasetRunnable}
 import com.github.blaval.scalaspark.utils.HiveSpec
 import org.scalatest.{Matchers, WordSpec}
 

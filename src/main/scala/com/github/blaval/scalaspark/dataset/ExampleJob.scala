@@ -1,19 +1,9 @@
 package com.github.blaval.scalaspark.dataset
 
-import com.github.blaval.scalaspark.common.{HasEncoder, Job, TableFunction}
+import com.github.blaval.scalaspark.common.{Job, TableFunction}
+import com.github.blaval.scalaspark.model.Patient
 import com.github.blaval.scalaspark.runnable.DatasetArgs
 import org.apache.spark.sql.{Dataset, SparkSession}
-
-case class Prescription(id: String, price: Double)
-
-case class Patient(patient_id: Long, prescriptions: Seq[Prescription]) {
-
-  def + (other: Patient): Patient = {
-    require(other.patient_id == patient_id, "Cannot merge with another patient because they have different id")
-    copy(prescriptions = prescriptions ++ other.prescriptions)
-  }
-}
-object Patient extends HasEncoder[Patient]
 
 class ExampleJob(spark: SparkSession, arguments: DatasetArgs, tableFunction: TableFunction) extends Job {
   implicit val sparkSession: SparkSession = spark
